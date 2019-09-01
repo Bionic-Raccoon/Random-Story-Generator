@@ -1,18 +1,24 @@
 import random
+import time
+from time import sleep
 
-print ("Welcome to the adventure!  Enter your new character's name:")
-name = raw_input()
+name = input("Welcome to the adventure!  Enter your new character's name:")
 print ("Your new characters is named " + name)
 strength = random.randint(0,3)
 dexterity = random.randint(0,3)
 constitution = random.randint(0,3)
 hitpoints = random.randint(5,10) + constitution
 
-print ("Here are your stats:")
+print ("Here are your stat modifiers:")
+sleep(1)
 print ("Strength: " + str(strength))
+sleep(1)
 print ("Dexterity: " + str(dexterity))
+sleep(1)
 print ("Constitution: " + str(constitution))
+sleep(1)
 print ("Hit Points: " + str(hitpoints))
+sleep(2)
 
 goblinkills = 0
 spiderkills = 0
@@ -40,11 +46,15 @@ def fightmonster(monster="", monstermaxhp=1, monsterac = 10, monsterxp=0, monste
 					print ("You killed the " + monster + "!")
 					kills = kills + 1
 					xp = xp + monsterxp
+
 				else:
 					print("You hit for " + str(damage) + ", the " + monster + ", it has " + str(monsterhp) + " hit points left")
 			else:
+
 				print ("Your pitiful attempt fails!  You miss the " + monster + "!")
 		print ("The " + monster + " tries to smite you!")
+
+
 		if random.randint(1,20) > 10 + dexterity:
 			damage = random.randint(1,monsterdamage)
 			print ("The " + monster + " hits you for " + str(damage) + " damage!")
@@ -78,3 +88,4 @@ while hitpoints > 0:
 print ("Sorry, you died! But you killed " + str(goblinkills) + " goblins!")
 print ("You also killed " + str(spiderkills) + " spiders.")
 print ("\n so there's that...")
+
